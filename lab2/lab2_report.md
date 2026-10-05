@@ -406,7 +406,7 @@ python bot.py
 
 Видео с демонстрацией работы Telegram-бота и интеграции с SQLite:
 
-[Смотреть видео-демонстрацию](lab2_demo.mov)
+[Смотреть видео-демонстрацию Lab2](https://drive.google.com/file/d/1vxv_PilcA5kA0TYqxW1Cxu91cNCESbxg/view?usp=sharing)
 ## 17. Возможные улучшения
 
 В дальнейшем проект можно расширить следующими возможностями:

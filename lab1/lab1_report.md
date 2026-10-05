@@ -286,7 +286,7 @@ python bot.py
 
 Видео с демонстрацией основных функций Telegram-бота:
 
-[Смотреть видео-демонстрацию](lab1_demo.mov)
+[Смотреть видео-демонстрацию Lab1](https://drive.google.com/file/d/1t1cF8V0pie_y16uWmKKW_JthmqmNb3ZU/view?usp=sharing)
 
 
 ##13. Проблемы в процессе разработки
