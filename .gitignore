@@ -13,3 +13,7 @@ lab2/tasks.db
 
 lab1/lab1_demo.zip
 lab2/lab2_demo.zip
+
+lab3/.env
+lab3/*.db
+lab3/*.log
