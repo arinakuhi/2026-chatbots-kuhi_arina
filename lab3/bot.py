@@ -55,7 +55,8 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
         "/tasks — показать задачи\n"
         "/done <номер> — отметить задачу выполненной\n"
         "/delete <номер> — удалить задачу\n"
-        "/stats — показать статистику задач"
+        "/stats — показать статистику задач\n"
+        "/active — показать только активные задачи"
     )
 
 
@@ -220,6 +221,48 @@ async def delete_task(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
     )
 
 
+
+async def active_tasks(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    user_id = update.effective_user.id
+
+    with sqlite3.connect(DB_FILE) as conn:
+        cursor = conn.cursor()
+        cursor.execute(
+            """
+            SELECT id, text, priority, done
+            FROM tasks
+            WHERE user_id = ? AND done = 0
+            ORDER BY
+                CASE priority
+                    WHEN 'высокий' THEN 1
+                    WHEN 'средний' THEN 2
+                    WHEN 'низкий' THEN 3
+                    ELSE 4
+                END,
+                id
+            """,
+            (user_id,),
+        )
+        tasks = cursor.fetchall()
+
+    if not tasks:
+        await update.message.reply_text(
+            "🎉 У тебя нет активных задач."
+        )
+        return
+
+    message = "📌 Активные задачи:\n\n"
+
+    for index, task in enumerate(tasks, start=1):
+        _, task_text, priority, _ = task
+        message += (
+            f"{index}. ⬜️ {task_text}\n"
+            f"Приоритет: {priority}\n\n"
+        )
+
+    await update.message.reply_text(message)
+
+
 async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_id = update.effective_user.id
 
@@ -267,6 +310,7 @@ def main() -> None:
     application.add_handler(CommandHandler("done", done_task))
     application.add_handler(CommandHandler("delete", delete_task))
     application.add_handler(CommandHandler("stats", stats))
+    application.add_handler(CommandHandler("active", active_tasks))
 
     logger.info("Бот Lab3 запущен. Используется база данных SQLite.")
     application.run_polling()
