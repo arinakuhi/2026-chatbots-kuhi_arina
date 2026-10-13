@@ -109,3 +109,8 @@ cd /Users/arina/Documents/2026-chatbots-kuhi_arina && cat > lab3/README.md <<'EO
 Подробное описание разработки, деплоя, пользовательского тестирования и улучшений находится в файле:
 
 `lab3_report.md`
+
+## Видео-демонстрация
+
+[Смотреть видео работы бота в Google Drive](https://drive.google.com/file/d/1HcjZX0Qnc8Bdf-UwBVD401wk3tdPHqiP/view?usp=sharing)
+

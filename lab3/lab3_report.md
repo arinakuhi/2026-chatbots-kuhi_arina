@@ -387,3 +387,10 @@ Railway получил новую версию и выполнил повтор�
 ### Обратная связь пользователя 3
 
 ![ОС3](screenshots/ОС3.png)
+
+## 20. Видео-демонстрация
+
+Видео с демонстрацией работы Telegram-бота после deployment на Railway:
+
+[Смотреть видео в Google Drive](https://drive.google.com/file/d/1HcjZX0Qnc8Bdf-UwBVD401wk3tdPHqiP/view?usp=sharing)
+
